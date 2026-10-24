@@ -15,7 +15,7 @@ file(GLOB GHIDRA_SOURCES "${GHIDRA_CPP}/*.cc")
 # client/server bridge, the SLEIGH compiler, or unit tests.
 list(FILTER GHIDRA_SOURCES EXCLUDE REGEX
     "/(analyzesigs|bfd_arch|codedata|loadimage_bfd|callgraph|ifacedecomp|ifaceterm|interface|rulecompile|testfunction|unify|consolemain|sleighexample|test|slgh_compile|slghparse|slghscan)\\.cc$")
-list(FILTER GHIDRA_SOURCES EXCLUDE REGEX "/ghidra[^/]*\\.cc$")
+list(FILTER GHIDRA_SOURCES EXCLUDE REGEX "/[^/]*ghidra[^/]*[.]cc$")
 
 add_library(vella SHARED
     vella_jni.cc
