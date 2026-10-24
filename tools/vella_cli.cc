@@ -4,10 +4,43 @@
 
 #include "vella_core.hh"
 
+namespace {
+
+bool good(const std::string &text) {
+    return text.rfind("ERROR:", 0) != 0 && text.find("0x2a") != std::string::npos;
+}
+
+int repeat_test(const char *x64_bin, const char *a64_bin, const char *specs) {
+    for (int i = 0; i < 3; ++i) {
+        std::string x64 = vella::decompile(
+            x64_bin, "x86:LE:64:default", 0x100000, 0, 0x10, "test_func", specs);
+        if (!good(x64)) {
+            std::cerr << "x86-64 pass " << i << " failed:\n" << x64 << "\n";
+            return 1;
+        }
+
+        std::string a64 = vella::decompile(
+            a64_bin, "AARCH64:LE:64:v8A", 0x400000, 0, 0x10, "test_func", specs);
+        if (!good(a64)) {
+            std::cerr << "AArch64 pass " << i << " failed:\n" << a64 << "\n";
+            return 1;
+        }
+    }
+    std::cout << "repeat decompilation passed\n";
+    return 0;
+}
+
+} // namespace
+
 int main(int argc, char **argv) {
+    if (argc == 5 && std::string(argv[1]) == "--repeat") {
+        return repeat_test(argv[2], argv[3], argv[4]);
+    }
+
     if (argc != 8) {
         std::cerr << "usage: vella_cli <binary> <language-id> <base> <entry-offset> "
-                     "<size> <function-name> <spec-dir>\n";
+                     "<size> <function-name> <spec-dir>\n"
+                     "       vella_cli --repeat <x64-bin> <a64-bin> <spec-dir>\n";
         return 2;
     }
 

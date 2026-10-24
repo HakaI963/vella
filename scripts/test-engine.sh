@@ -52,4 +52,7 @@ echo "Decompiling AArch64 test function"
 grep -q "test_func" "$OUT/test-a64.c"
 grep -Eqi "0x2a|42" "$OUT/test-a64.c"
 
+echo "Repeating decompilation in one process"
+"$OUT/vella_cli" --repeat "$OUT/test-x64.bin" "$OUT/test-a64.bin" "$SPECS"
+
 echo "Engine smoke test passed"
