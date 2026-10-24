@@ -72,6 +72,9 @@ jobs:
       - name: Stage Ghidra assets
         run: ./scripts/stage-assets.sh
 
+      - name: Engine smoke test (host)
+        run: ./scripts/test-engine.sh
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:

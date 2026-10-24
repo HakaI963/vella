@@ -35,9 +35,12 @@ The workflow:
 1. Checks out this repository.
 2. Sparse-checks out Ghidra `Ghidra_12.2_build` (decompiler + processor specs).
 3. Builds the host SLEIGH compiler and compiles `.slaspec` files into `.sla`.
-4. Builds the Android native library with CMake/NDK.
-5. Assembles, aligns, and signs the release APK.
-6. Publishes `vella.apk` and its SHA-256 to a GitHub release.
+4. Runs a host-side smoke test that decompiles a two-instruction x86-64
+   function and a two-instruction AArch64 function through the same engine
+   code the app uses.
+5. Builds the Android native library with CMake/NDK.
+6. Assembles, aligns, and signs the release APK.
+7. Publishes `vella.apk` and its SHA-256 to a GitHub release.
 
 Every push to `main` updates the `ci-latest` pre-release. A `v*` tag creates
 a versioned release.

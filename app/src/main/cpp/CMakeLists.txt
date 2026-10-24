@@ -18,6 +18,7 @@ list(FILTER GHIDRA_SOURCES EXCLUDE REGEX
 list(FILTER GHIDRA_SOURCES EXCLUDE REGEX "/[^/]*ghidra[^/]*[.]cc$")
 
 add_library(vella SHARED
+    vella_core.cc
     vella_jni.cc
     ${GHIDRA_SOURCES}
 )
