@@ -7,29 +7,26 @@ SLA="$ROOT/build/sla"
 ASSETS="$ROOT/app/src/main/assets/ghidra"
 
 rm -rf "$ASSETS"
-mkdir -p "$ASSETS/x86" "$ASSETS/ARM" "$ASSETS/AARCH64"
+mkdir -p "$ASSETS"
 
 copy_specs() {
   local src="$1"
-  local dst="$2"
-  cp "$src"/*.ldefs "$src"/*.pspec "$src"/*.cspec "$dst"/
+  cp "$src"/*.ldefs "$src"/*.pspec "$src"/*.cspec "$ASSETS"/
 }
 
-copy_specs "$GHIDRA/x86/data/languages" "$ASSETS/x86"
-copy_specs "$GHIDRA/ARM/data/languages" "$ASSETS/ARM"
-copy_specs "$GHIDRA/AARCH64/data/languages" "$ASSETS/AARCH64"
+copy_specs "$GHIDRA/x86/data/languages"
+copy_specs "$GHIDRA/ARM/data/languages"
+copy_specs "$GHIDRA/AARCH64/data/languages"
 
-cp "$SLA/x86.sla" "$SLA/x86-64.sla" "$ASSETS/x86/"
-cp "$SLA/ARM7_le.sla" "$ASSETS/ARM/"
-cp "$SLA/AARCH64.sla" "$ASSETS/AARCH64/"
+cp "$SLA/x86.sla" "$SLA/x86-64.sla" "$SLA/ARM7_le.sla" "$SLA/AARCH64.sla" "$ASSETS"/
 
-test -f "$ASSETS/x86/x86.ldefs"
-test -f "$ASSETS/x86/x86.sla"
-test -f "$ASSETS/x86/x86-64.sla"
-test -f "$ASSETS/ARM/ARM.ldefs"
-test -f "$ASSETS/ARM/ARM7_le.sla"
-test -f "$ASSETS/AARCH64/AARCH64.ldefs"
-test -f "$ASSETS/AARCH64/AARCH64.sla"
+test -f "$ASSETS/x86.ldefs"
+test -f "$ASSETS/x86.sla"
+test -f "$ASSETS/x86-64.sla"
+test -f "$ASSETS/ARM.ldefs"
+test -f "$ASSETS/ARM7_le.sla"
+test -f "$ASSETS/AARCH64.ldefs"
+test -f "$ASSETS/AARCH64.sla"
 
 du -sh "$ASSETS"
-find "$ASSETS" -maxdepth 2 -type f | sort
+find "$ASSETS" -maxdepth 1 -type f | sort
