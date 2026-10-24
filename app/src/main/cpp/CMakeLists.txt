@@ -36,4 +36,6 @@ target_compile_options(vella PRIVATE
     -Wno-deprecated-declarations
 )
 
+target_link_options(vella PRIVATE "-Wl,-z,max-page-size=16384")
+
 target_link_libraries(vella z log)
