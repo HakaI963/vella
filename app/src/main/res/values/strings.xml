@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vella</string>
+    <string name="subtitle">Ghidra decompiler engine for Android</string>
+    <string name="choose_binary">Choose binary</string>
+    <string name="no_file">No file selected</string>
+    <string name="architecture">Architecture</string>
+    <string name="base_address">Base address (hex)</string>
+    <string name="entry_offset">Entry offset (hex)</string>
+    <string name="bytes_to_analyze">Bytes to analyze (hex)</string>
+    <string name="function_name">Function name</string>
+    <string name="decompile">Decompile</string>
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="save_c">Save .c</string>
+    <string name="ready">Ready</string>
+    <string name="preparing">Preparing Ghidra specifications…</string>
+    <string name="decompiling">Decompiling…</string>
+    <string name="no_output">Decompilation output appears here.</string>
+</resources>

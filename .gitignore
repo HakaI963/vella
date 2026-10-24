@@ -1,0 +1,22 @@
+# Build output
+.gradle/
+build/
+app/build/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+!debug.keystore
+
+# Native build
+.cxx/
+obj/
+libs/
+third_party/ghidra/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store

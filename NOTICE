@@ -1,0 +1,10 @@
+Vella
+Copyright 2026 Vella contributors
+
+This product includes software developed by the National Security Agency
+as part of Ghidra (https://github.com/NationalSecurityAgency/ghidra),
+licensed under the Apache License, Version 2.0.
+
+The Android application links the Ghidra decompiler engine sources at build
+time. Ghidra is a trademark of the National Security Agency. This project is
+not endorsed by or affiliated with the Ghidra project.
