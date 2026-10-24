@@ -14,7 +14,7 @@ file(GLOB GHIDRA_SOURCES "${GHIDRA_CPP}/*.cc")
 # Files that are only for the desktop console, BFD loaders, the Ghidra
 # client/server bridge, the SLEIGH compiler, or unit tests.
 list(FILTER GHIDRA_SOURCES EXCLUDE REGEX
-    "/(bfd_arch|loadimage_bfd|callgraph|ifacedecomp|ifaceterm|interface|rulecompile|testfunction|consolemain|sleighexample|test|slgh_compile|slghparse|slghscan)\\.cc$")
+    "/(analyzesigs|bfd_arch|loadimage_bfd|callgraph|ifacedecomp|ifaceterm|interface|rulecompile|testfunction|consolemain|sleighexample|test|slgh_compile|slghparse|slghscan)\\.cc$")
 list(FILTER GHIDRA_SOURCES EXCLUDE REGEX "/ghidra[^/]*\\.cc$")
 
 add_library(vella SHARED

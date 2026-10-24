@@ -72,7 +72,7 @@ std::string decompile(const std::string &binary_path,
         }
 
         architecture.allacts.getCurrent()->reset(*data);
-        int4 status = architecture.allacts.getCurrent()->perform(*data);
+        ghidra::int4 status = architecture.allacts.getCurrent()->perform(*data);
         if (status < 0) {
             diagnostics << "analysis stopped early\n";
         }

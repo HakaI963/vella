@@ -10,6 +10,7 @@ val ghidraCpp = rootProject.layout.projectDirectory
 android {
     namespace = "com.vella.app"
     compileSdk = 35
+    ndkVersion = "27.0.12077973"
 
     defaultConfig {
         applicationId = "com.vella.app"
