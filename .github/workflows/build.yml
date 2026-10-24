@@ -84,7 +84,6 @@ jobs:
         env:
           KEYSTORE_B64: ${{ secrets.VELLA_KEYSTORE_B64 }}
           KS_PASS: ${{ secrets.VELLA_KEYSTORE_PASSWORD }}
-          KEY_PASS: ${{ secrets.VELLA_KEY_PASSWORD }}
           KEY_ALIAS: ${{ secrets.VELLA_KEY_ALIAS }}
         run: |
           set -euo pipefail
@@ -104,7 +103,7 @@ jobs:
             --ks release.jks \
             --ks-key-alias "$KEY_ALIAS" \
             --ks-pass env:KS_PASS \
-            --key-pass env:KEY_PASS \
+            --key-pass env:KS_PASS \
             --out vella.apk \
             aligned.apk
           "$BT/apksigner" verify --verbose --print-certs vella.apk | tee apk-signature.txt
